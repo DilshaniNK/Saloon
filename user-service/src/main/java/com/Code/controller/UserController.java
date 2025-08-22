@@ -3,6 +3,7 @@ package com.Code.controller;
 
 import com.Code.Repository.UserRepository;
 import com.Code.model.User;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public User createUser(@RequestBody @Valid User user) {
         return userRepository.save(user);
     }
 
